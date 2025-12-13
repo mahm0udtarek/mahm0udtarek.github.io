@@ -53,6 +53,35 @@ const profileData = {
         }
     ],
 
+    books: [
+        {
+            title: "CCNA 200-301 v1.1",
+            image: "images/ccna_book.png",
+            link: "https://t.me/NettTip/10",
+            edition: "2nd Edition"
+        },
+        {
+            title: "CCNP SCORE 350-701",
+            image: "images/ccnp_security_book.png",
+            link: "https://t.me/NettTip/6",
+            edition: "v1"
+        },
+        {
+            title: "MCSA",
+            image: "images/mcsa_book.png",
+            link: "#",
+            edition: "v1",
+            comingSoon: true
+        },
+        {
+            title: "NSE4 – CPT Nuggets",
+            image: "images/nse4_book.png",
+            link: "#",
+            edition: "v1",
+            comingSoon: true
+        }
+    ],
+
     educationAndCourses: [
         {
             type: 'Education',
@@ -182,6 +211,34 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p class="text-sm text-gray-500 mt-2 italic">${item.details}</p>
                     </div>
                 </div>
+            `;
+        }).join('');
+    }
+
+    // --- Guide Books Section ---
+    const booksGrid = document.getElementById('books-grid');
+    if (booksGrid) {
+        booksGrid.innerHTML = profileData.books.map(book => {
+            const isComingSoon = book.comingSoon;
+            const linkAttrs = isComingSoon ? 'href="javascript:void(0)" class="cursor-default group relative block h-96 rounded-2xl overflow-hidden shadow-2xl reveal grayscale"' : `href="${book.link}" target="_blank" class="group relative block h-96 rounded-2xl overflow-hidden shadow-2xl hover:shadow-sky-500/50 transition-all duration-500 transform hover:-translate-y-2 reveal"`;
+            const buttonContent = isComingSoon
+                ? `<span class="text-yellow-500 font-bold flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Coming Soon</span>`
+                : `<div class="flex items-center text-gray-300 text-sm font-medium group-hover:text-white transition-colors"><span>Download Guide</span><svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></div>`;
+            const imageClass = isComingSoon ? "w-full h-full object-cover opacity-50" : "w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700";
+
+            return `
+            <a ${linkAttrs}>
+                <div class="absolute inset-0 bg-gray-900">
+                    <img src="${book.image}" alt="${book.title}" class="${imageClass}">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
+                ${isComingSoon ? '<div class="absolute top-4 right-4 bg-yellow-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">COMING SOON</div>' : ''}
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <span class="inline-block px-3 py-1 bg-sky-600 text-white text-xs font-bold rounded-full mb-3 shadow-lg">${book.edition}</span>
+                    <h4 class="text-2xl font-bold text-white mb-2 ${!isComingSoon ? 'group-hover:text-sky-400 transition-colors' : ''}">${book.title}</h4>
+                    ${buttonContent}
+                </div>
+            </a>
             `;
         }).join('');
     }
