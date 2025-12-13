@@ -1,87 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo Portfolio - Mahmoud Tarek</title>
+    <meta name="description" content="Portfolio of Mahmoud Tarek, a Network and Security Engineer specializing in FortiGate, Cisco Security, and Infrastructure.">
+    <title>Mahmoud Tarek | Network & Security Engineer</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <style>
-        /* Custom styles for the dark, tech-inspired background and typography */
-        :root {
-            --bg-color: #0c0c16; /* Very dark background */
-            --accent-color: #38bdf8; /* Sky Blue for accents */
-            --text-color: #e2e8f0; /* Off-white for body text */
-            --secondary-bg: #1f2937; /* Darker gray for cards */
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
-
-        /* Subtle grid pattern for the background of the main content area */
-        .tech-grid-bg {
-            background-image: linear-gradient(0deg, transparent 95%, rgba(255, 255, 255, 0.05) 95%), 
-                              linear-gradient(90deg, transparent 95%, rgba(255, 255, 255, 0.05) 95%);
-            background-size: 50px 50px;
-        }
-
-        .section-separator {
-            width: 100px;
-            height: 3px;
-            background-color: var(--accent-color);
-            margin-bottom: 2rem;
-            border-radius: 9999px;
-        }
-
-        /* Utility for smooth scrolling in JavaScript */
-        .smooth-scroll {
-            transition: all 0.3s ease-in-out;
-        }
-    </style>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="tech-grid-bg relative">
 
-    <!-- DEMO INDICATOR (Injected via JS if enabled) -->
+<body class="tech-grid-bg relative h-full">
+
+    <!-- DEMO INDICATOR -->
     <div id="demo-indicator-container"></div>
 
     <!-- Navigation Header -->
-    <header class="sticky top-0 z-40 bg-gray-950/90 backdrop-blur-sm shadow-lg border-b border-gray-700">
+    <header class="sticky top-0 z-50 bg-[#0b0f19]/80 backdrop-blur-md border-b border-gray-800 shadow-lg">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <h1 class="text-xl font-bold text-sky-400" id="nav-name">Mahmoud Tarek<span class="text-gray-400">.netsec</span></h1>
-            <div class="space-x-4 flex">
-                <a href="#hero" class="text-gray-300 hover:text-sky-400 smooth-scroll hidden md:inline">Home</a>
-                <a href="#about" class="text-gray-300 hover:text-sky-400 smooth-scroll">Summary</a>
-                <a href="#skills" class="text-gray-300 hover:text-sky-400 smooth-scroll">Skills</a>
-                <a href="#projects" class="text-gray-300 hover:text-sky-400 smooth-scroll">Labs</a>
-                <a href="#contact" class="text-gray-300 hover:text-sky-400 smooth-scroll">Contact</a>
+            <h1 class="text-xl font-bold tracking-tight text-white hover:text-sky-400 transition" id="nav-name">
+                Mahmoud Tarek
+            </h1>
+            <div class="space-x-8 hidden md:flex font-medium text-sm">
+                <a href="#hero" class="text-gray-300 hover:text-sky-400 transition-colors">Home</a>
+                <a href="#about" class="text-gray-300 hover:text-sky-400 transition-colors">Summary</a>
+                <a href="#skills" class="text-gray-300 hover:text-sky-400 transition-colors">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-sky-400 transition-colors">Certifications</a>
+                <a href="#contact" class="bg-sky-600 hover:bg-sky-500 text-white px-4 py-2 rounded-full transition-all shadow-lg hover:shadow-sky-500/30">Contact</a>
             </div>
         </nav>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- 1. Hero Section -->
-        <section id="hero" class="min-h-screen flex items-center justify-center text-center pt-20">
-            <div>
-                <span class="text-lg uppercase tracking-widest text-gray-400 mb-4 block">Future-Proofing Network Defenses</span>
-                <h2 class="text-6xl sm:text-7xl lg:text-8xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-sky-300 to-sky-500" id="hero-name">
+        <section id="hero" class="min-h-screen flex items-center justify-center text-center pt-12 pb-20 relative">
+            <div class="relative z-10 w-full max-w-4xl">
+                <!-- Decorative Glow -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[100px] -z-10"></div>
+                
+                <span class="text-sm font-semibold uppercase tracking-[0.3em] text-sky-500 mb-6 block animate-pulse">Securing The Future</span>
+                
+                <h2 class="text-6xl sm:text-7xl lg:text-8xl font-black mb-6 tracking-tight text-white drop-shadow-2xl" id="hero-name">
                     MAHMOUD TAREK
                 </h2>
-                <p class="text-2xl sm:text-3xl font-light text-gray-300 mb-8" id="hero-title">
-                    Junior Network and Security Engineer
-                </p>
-                <p class="text-lg max-w-3xl mx-auto text-gray-400 mb-10 border-b border-t border-gray-700/50 py-4" id="hero-tagline">
-                    Driven Engineer with hands-on FortiGate, CCNP Security, and CCNA skills, eager to apply expertise in security operations and network infrastructure.
+                
+                <p class="text-2xl sm:text-3xl font-light text-gray-300 mb-8 h-12 flex justify-center items-center gap-1">
+                    <span id="hero-title"></span><span class="w-0.5 h-8 bg-sky-500 cursor-blink"></span>
                 </p>
                 
-                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a href="#projects" class="bg-sky-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-sky-700 transition duration-300 transform hover:scale-105 smooth-scroll">
-                        View Certifications
+                <p class="text-lg max-w-2xl mx-auto text-gray-400 mb-12 leading-relaxed" id="hero-tagline"></p>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#projects"
+                        class="bg-gradient-to-r from-sky-600 to-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-sky-500/40 hover:-translate-y-1 transition-all duration-300">
+                        View Credentials
                     </a>
-                    <a href="#" class="bg-gray-700 text-gray-200 font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-600 transition duration-300 transform hover:scale-105 border border-sky-600/50">
+                    <a href="#"
+                        class="bg-gray-800/50 backdrop-blur text-gray-200 font-semibold py-3 px-8 rounded-full border border-gray-700 hover:bg-gray-700 hover:border-sky-500/50 transition-all duration-300">
                         Download CV
                     </a>
                 </div>
@@ -89,283 +69,72 @@
         </section>
 
         <!-- 2. About Me/Summary Section -->
-        <section id="about" class="py-20 lg:py-32">
-            <div class="text-center">
-                <h3 class="text-4xl font-bold text-sky-400 mb-2">Professional Summary</h3>
+        <section id="about" class="py-24">
+            <div class="text-center mb-16 reveal">
+                <h3 class="text-3xl font-bold text-white mb-2">Professional Summary</h3>
                 <div class="section-separator mx-auto"></div>
             </div>
-            <div class="max-w-4xl mx-auto text-center">
-                <p class="text-lg text-gray-400 leading-relaxed" id="summary-content">
-                    A recent graduated Electronics and Communications Engineer with knowledge in FortiGate Firewall (NSE4), CCNP Security, and CCNA, passionate about advancing my career in network security. With hands-on skills in configuring routers, switches, and firewalls, and proficiency in tools like Wireshark and GNS3. I am eager to contribute to innovative security operations while continuously growing my technical expertise.
-                </p>
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <p class="text-xl text-gray-400 leading-8" id="summary-content"></p>
             </div>
         </section>
 
         <!-- 3. Skills Section -->
-        <section id="skills" class="py-20 lg:py-32">
-            <div class="text-center">
-                <h3 class="text-4xl font-bold text-sky-400 mb-2">Technical Expertise</h3>
+        <section id="skills" class="py-24">
+            <div class="text-center mb-16 reveal">
+                <h3 class="text-3xl font-bold text-white mb-2">Technical Expertise</h3>
                 <div class="section-separator mx-auto"></div>
             </div>
 
             <!-- Skills Grid Container -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12" id="skills-grid">
-                <!-- Content will be injected by JavaScript -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="skills-grid">
+                <!-- Content injected by JavaScript -->
             </div>
-            
-            <div class="max-w-4xl mx-auto mt-16 p-6 bg-gray-900 rounded-xl shadow-xl border border-gray-700">
-                <h4 class="text-2xl font-semibold mb-3 text-sky-400">Soft Skills</h4>
-                <ul class="flex flex-wrap gap-4 text-gray-400 text-sm">
-                    <li class="px-3 py-1 bg-gray-800 rounded-full border border-sky-600/50">Strong problem-solving and analytical abilities</li>
-                    <li class="px-3 py-1 bg-gray-800 rounded-full border border-sky-600/50">Excellent teamwork and collaboration</li>
-                    <li class="px-3 py-1 bg-gray-800 rounded-full border border-sky-600/50">Effective communication</li>
-                    <li class="px-3 py-1 bg-gray-800 rounded-full border border-sky-600/50">Time management skills</li>
-                </ul>
+
+            <!-- Soft Skills -->
+            <div class="max-w-3xl mx-auto mt-16 text-center reveal">
+                <div class="inline-flex flex-wrap justify-center gap-3">
+                    <span class="px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-sm text-gray-300 hover:border-sky-500 transition cursor-default">Problem Solving</span>
+                    <span class="px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-sm text-gray-300 hover:border-sky-500 transition cursor-default">Analytical Thinking</span>
+                    <span class="px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-sm text-gray-300 hover:border-sky-500 transition cursor-default">Team Collaboration</span>
+                    <span class="px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-sm text-gray-300 hover:border-sky-500 transition cursor-default">Effective Communication</span>
+                </div>
             </div>
         </section>
 
         <!-- 4. Education & Courses Section -->
-        <section id="projects" class="py-20 lg:py-32">
-            <div class="text-center">
-                <h3 class="text-4xl font-bold text-sky-400 mb-2">Education & Certifications</h3>
+        <section id="projects" class="py-24">
+            <div class="text-center mb-16 reveal">
+                <h3 class="text-3xl font-bold text-white mb-2">Education & Certifications</h3>
                 <div class="section-separator mx-auto"></div>
             </div>
-            
-            <div class="max-w-3xl mx-auto space-y-8 mt-12" id="education-timeline">
-                <!-- Content will be injected by JavaScript -->
+
+            <div class="max-w-3xl mx-auto mt-12" id="education-timeline">
+                <!-- Content injected by JavaScript -->
             </div>
         </section>
 
-
         <!-- 5. Contact & Footer -->
-        <footer id="contact" class="bg-gray-900 border-t border-gray-700 py-12">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <footer id="contact" class="py-20 border-t border-gray-800/50 mt-12 bg-black/20">
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <h3 class="text-3xl font-bold text-white mb-2">Let's Connect</h3>
+                <p class="text-gray-400 mb-8">Ready to bring secure, reliable infrastructure to your team.</p>
                 
-                <h3 class="text-3xl font-bold text-sky-400 mb-2">Get in Touch</h3>
-                <p class="text-gray-400 max-w-2xl mx-auto mb-8">
-                    Based in <span id="contact-location">Sharqia, Egypt</span>. I am ready to start my career in network and security engineering.
-                </p>
-
-                <div class="flex justify-center space-x-6" id="contact-links-container">
-                    <!-- Links will be injected by JavaScript -->
+                <div class="flex justify-center space-x-8 mb-12" id="contact-links-container">
+                    <!-- Links injected by JavaScript -->
                 </div>
 
-                <p class="mt-8 text-sm text-gray-600">
-                    &copy; 2025 Mahmoud Tarek. Built for professional network security recruitment.
-                </p>
+                <div class="text-sm text-gray-600">
+                    <p>Based in <span id="contact-location" class="text-gray-400"></span></p>
+                    <p class="mt-2">&copy; 2025 Mahmoud Tarek. All rights reserved.</p>
+                </div>
             </div>
         </footer>
 
     </main>
 
-    <!-- JavaScript for Data Management and Smooth Scrolling -->
-    <script>
-        // --- 1. CONFIGURATION DATA (Easy to Edit) ---
-
-        const profileData = {
-            // SET THIS TO FALSE TO REMOVE THE DEMO INDICATOR
-            showDemoLabel: true, 
-
-            name: "Mahmoud Tarek",
-            title: "Junior Network and Security Engineer",
-            email: "mahmoud.tariek7@gmail.com",
-            linkedin: "https://www.linkedin.com/in/mahm0udtarek/",
-            github: "https://github.com/mahmoudtarek7",
-            location: "Sharqia, Egypt",
-            tagline: "Driven Engineer with hands-on FortiGate, CCNP Security, and CCNA skills, eager to apply expertise in security operations and network infrastructure.",
-            summary: "A recent graduated Electronics and Communications Engineer with knowledge in FortiGate Firewall (NSE4), CCNP Security, and CCNA, passionate about advancing my career in network security. With hands-on skills in configuring routers, switches, and firewalls, and proficiency in tools like Wireshark and GNS3. I am eager to contribute to innovative security operations while continuously growing my technical expertise.",
-            
-            skills: [
-                {
-                    title: "Networking & Security",
-                    icon: '<svg class="w-8 h-8 text-sky-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9h-3M3 12a9 9 0 019-9m9 9h-3M3 12h3m0 0h12m-6 0h-2M4 6h16M4 18h16"></path></svg>',
-                    list: [
-                        "Configuration & Troubleshooting (Routers, Switches, Firewalls)",
-                        "Firewalls & VPNs (FortiGate)",
-                        "Protocols: TCP/IP, VLANs, OSPF, RADIUS",
-                        "Implementing network security solutions",
-                    ]
-                },
-                {
-                    title: "Security Frameworks",
-                    icon: '<svg class="w-8 h-8 text-sky-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m-7.228 4.228A.5.5 0 0111 20H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-6.879l-2.929 2.93a1 1 0 01-.707.293z"></path></svg>',
-                    list: [
-                        "CIS Control v8 Hardening (IG1 & IG2)",
-                        "Windows Server Hardening",
-                        "CCNP Security Concepts (SCORE 350-401)",
-                        "CCNA Principles"
-                    ]
-                },
-                {
-                    title: "Operating Systems & Tools",
-                    icon: '<svg class="w-8 h-8 text-sky-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.515-1.42 2.373-1.42 2.888 0l1.737 4.795h5.05a1.5 1.5 0 01.91 2.617l-4.14 3.013 1.577 4.35a1.5 1.5 0 01-2.298 1.673L12 18.04l-3.522 2.05a1.5 1.5 0 01-2.298-1.673l1.577-4.35-4.14-3.013a1.5 1.5 0 01.91-2.617h5.05l1.737-4.795z"></path></svg>',
-                    list: [
-                        "Windows Server Installation, Config, Maintenance",
-                        "Wireshark (Packet Analysis)",
-                        "GNS3 (Network Simulation)",
-                        "MSCA Principles",
-                    ]
-                },
-                {
-                    title: "Planned Development",
-                    icon: '<svg class="w-8 h-8 text-sky-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>',
-                    list: [
-                        "Virtualization (vSphere)",
-                        "CCNP ENCORE",
-                        "Red Hat Linux",
-                        "EJPTv2 Certification"
-                    ]
-                }
-            ],
-
-            educationAndCourses: [
-                {
-                    type: 'Education',
-                    year: 'Jan 2019 - 2024',
-                    title: 'Bachelor of Engineering, Electronics and Communications Engineering',
-                    institution: '10th of Ramadan - Higher Technology Institute',
-                    details: 'GPA: 2.7. Graduated with a focus on electronic and communication systems, providing a strong foundation in networking principles.'
-                },
-                {
-                    type: 'Certification',
-                    year: '2025 – In-Progress',
-                    title: 'EJPTv2',
-                    institution: 'Netriders – Ahmed Sultan (Self-Study)',
-                    details: 'Focusing on practical penetration testing skills.'
-                },
-                {
-                    type: 'Certification',
-                    year: '2025 – In-Progress',
-                    title: 'FortiGate FCF',
-                    institution: 'CPT-Nuggets (Self-Study)',
-                    details: 'Deep dive into FortiGate firewall configuration and administration.'
-                },
-                {
-                    type: 'Certification',
-                    year: '2024',
-                    title: 'MCSA',
-                    institution: 'Tshoot – Abeer Hosni',
-                    details: 'Training covering Microsoft Server environments and administration.'
-                },
-                {
-                    type: 'Certification',
-                    year: '2022',
-                    title: 'CCNP Security SCORE 350-401',
-                    institution: 'Tshoot – Abeer Hosni',
-                    details: 'Advanced training in Cisco security core technologies.'
-                },
-                {
-                    type: 'Certification',
-                    year: '2021',
-                    title: 'CCNAv1.1 250-301',
-                    institution: 'Tshoot – Abeer Hosni',
-                    details: 'Foundational certification in networking technologies.'
-                },
-            ]
-        };
-
-        // --- 2. DYNAMIC CONTENT RENDERING ---
-
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // --- Demo Indicator Logic ---
-            if (profileData.showDemoLabel) {
-                const demoContainer = document.getElementById('demo-indicator-container');
-                demoContainer.innerHTML = `
-                    <div class="fixed bottom-6 right-6 z-50 animate-bounce">
-                        <div class="bg-yellow-500 text-gray-900 font-bold px-4 py-2 rounded shadow-lg border-2 border-yellow-400 flex items-center gap-2">
-                            <span>🚧</span>
-                            <span>DEMO PORTFOLIO</span>
-                        </div>
-                    </div>
-                `;
-            }
-
-            // --- General Profile Updates ---
-            document.getElementById('nav-name').innerHTML = `${profileData.name}<span class="text-gray-400">.netsec</span>`;
-            document.getElementById('hero-name').textContent = profileData.name.toUpperCase();
-            document.getElementById('hero-title').textContent = profileData.title;
-            document.getElementById('hero-tagline').innerHTML = `<span class="font-semibold text-sky-400">Career Focus:</span> ${profileData.tagline}`;
-            document.getElementById('summary-content').textContent = profileData.summary;
-            document.getElementById('contact-location').textContent = profileData.location;
-
-            // --- Skills Grid Rendering ---
-            const skillsGrid = document.getElementById('skills-grid');
-            skillsGrid.innerHTML = profileData.skills.map(skill => `
-                <div class="p-6 bg-gray-900 rounded-xl shadow-2xl border-t-4 border-sky-600 hover:shadow-sky-500/20 transition duration-300">
-                    ${skill.icon}
-                    <h4 class="text-2xl font-semibold mb-3 text-gray-100">${skill.title}</h4>
-                    <ul class="text-gray-400 space-y-2 text-sm">
-                        ${skill.list.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                </div>
-            `).join('');
-
-
-            // --- Education & Courses Timeline Rendering ---
-            const timeline = document.getElementById('education-timeline');
-            timeline.innerHTML = profileData.educationAndCourses.map((item, index, array) => {
-                const isLast = index === array.length - 1;
-                return `
-                    <div class="flex relative pl-8 ${!isLast ? 'border-l-2 border-sky-600/50' : ''}">
-                        <div class="absolute w-4 h-4 rounded-full bg-sky-600 -left-2 top-0 border-4 border-gray-950"></div>
-                        <div class="flex-grow pb-8">
-                            <p class="text-sm font-semibold uppercase tracking-wider text-sky-400">${item.year} <span class="text-gray-500">(${item.type})</span></p>
-                            <h4 class="text-xl font-bold text-gray-100 mt-1">${item.title}</h4>
-                            <p class="text-gray-400">${item.institution}</p>
-                            <p class="text-sm text-gray-500 mt-2">${item.details}</p>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-
-
-            // --- Contact Links Rendering ---
-            const linksContainer = document.getElementById('contact-links-container');
-            linksContainer.innerHTML = `
-                <!-- Email -->
-                <a href="mailto:${profileData.email}" target="_blank" class="text-gray-400 hover:text-sky-400 transition duration-300 flex items-center space-x-2 group">
-                    <svg class="w-6 h-6 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-17 4v7a2 2 0 002 2h12a2 2 0 002-2v-7"></path></svg>
-                    <span class="hidden sm:inline">Email</span>
-                </a>
-                
-                <!-- LinkedIn -->
-                <a href="${profileData.linkedin}" target="_blank" class="text-gray-400 hover:text-sky-400 transition duration-300 flex items-center space-x-2 group">
-                    <svg class="w-6 h-6 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.535-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    <span class="hidden sm:inline">LinkedIn</span>
-                </a>
-
-                <!-- GitHub (Placeholder) -->
-                <a href="${profileData.github}" target="_blank" class="text-gray-400 hover:text-sky-400 transition duration-300 flex items-center space-x-2 group">
-                    <svg class="w-6 h-6 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.087-.744.084-.69.084-.69 1.205.086 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.303.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23a11.196 11.196 0 013.333-.45c1.155.006 2.308.152 3.333.45 2.292-1.552 3.301-1.23 3.301-1.23.652 1.652.241 2.873.117 3.176.766.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.474 5.922.43.37.823 1.107.823 2.222v3.293c0 .319.192.694.8 1.056c4.764-1.587 8.201-6.085 8.201-11.387c0-6.627-5.373-12-12-12z"/></svg>
-                    <span class="hidden sm:inline">GitHub</span>
-                </a>
-            `;
-
-            // --- 3. Smooth Scrolling Logic ---
-            const navLinks = document.querySelectorAll('a.smooth-scroll');
-            
-            const smoothScrollTo = (e) => {
-                e.preventDefault();
-                const targetId = e.target.getAttribute('href');
-                if (targetId) {
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const headerHeight = document.querySelector('header').offsetHeight;
-                        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            };
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', smoothScrollTo);
-            });
-        });
-    </script>
+    <!-- Main Logic Script -->
+    <script src="script.js"></script>
 </body>
+
 </html>
