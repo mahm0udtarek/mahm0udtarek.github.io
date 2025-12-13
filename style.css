@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* --- Core Variables & Theme --- */
+:root {
+    --bg-color: #0b0f19; /* Deep space blue-black */
+    --text-color: #e2e8f0;
+    --accent-primary: #0ea5e9; /* Sky 500 */
+    --accent-secondary: #6366f1; /* Indigo 500 */
+    --glass-bg: rgba(17, 24, 39, 0.7);
+    --glass-border: rgba(56, 189, 248, 0.2);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* --- Dynamic Background --- */
+.tech-grid-bg {
+    background-color: var(--bg-color);
+    background-image: 
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
+        linear-gradient(0deg, transparent 95%, rgba(255, 255, 255, 0.03) 95%),
+        linear-gradient(90deg, transparent 95%, rgba(255, 255, 255, 0.03) 95%);
+    background-size: 100% 100%, 60px 60px, 60px 60px;
+}
+
+/* --- Utilities --- */
+.section-separator {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    margin-bottom: 2rem;
+    border-radius: 9999px;
+}
+
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
+
+/* --- Glassmorphism Cards --- */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(14, 165, 233, 0.15);
+    border-color: var(--accent-primary);
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Cursor blinking for typing effect */
+.cursor-blink {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
