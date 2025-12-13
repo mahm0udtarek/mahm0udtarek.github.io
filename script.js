@@ -7,8 +7,8 @@ const profileData = {
     linkedin: "https://www.linkedin.com/in/mahm0udtarek/",
     github: "https://github.com/houda71",
     location: "Sharqia, Egypt",
-    tagline: "Driven Engineer with hands-on FortiGate, CCNP Security, and CCNA skills, eager to apply expertise in security operations and network infrastructure.",
-    summary: "A recent graduated Electronics and Communications Engineer with knowledge in FortiGate Firewall (NSE4), CCNP Security, and CCNA, passionate about advancing my career in network security. With hands-on skills in configuring routers, switches, and firewalls, and proficiency in tools like Wireshark and GNS3. I am eager to contribute to innovative security operations while continuously growing my technical expertise.",
+    tagline: "Driven Engineer with hands-on FortiGate, CCNP Security, CCNA and MCSA skills, eager to apply expertise in security operations and network infrastructure.",
+    summary: "A recent graduated Electronics and Communications Engineer with knowledge in FortiGate Firewall (NSE4), CCNP Security, CCNA and MCSA, passionate about advancing my career in network security. With hands-on skills in configuring routers, switches, and firewalls, and proficiency in tools like Wireshark and GNS3. I am eager to contribute to innovative security operations while continuously growing my technical expertise.",
 
     skills: [
         {
@@ -47,8 +47,7 @@ const profileData = {
             list: [
                 "Virtualization (vSphere)",
                 "CCNP ENCORE",
-                "Red Hat Linux",
-                "EJPTv2 Certification"
+                "Red Hat Linux"
             ]
         }
     ],
@@ -88,7 +87,7 @@ const profileData = {
             year: 'Jan 2019 - 2024',
             title: 'Bachelor of Engineering',
             institution: '10th of Ramadan - Higher Technology Institute',
-            details: 'GPA: 2.7. Electronics and Communications.'
+            details: 'Electronics and Communications.'
         },
         {
             type: 'Certification',
