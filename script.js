@@ -5,7 +5,7 @@ const profileData = {
     title: "Junior Network and Security Engineer",
     email: "mahmoud.tariek7@gmail.com",
     linkedin: "https://www.linkedin.com/in/mahm0udtarek/",
-    github: "https://github.com/mahmoudtarek7",
+    github: "https://github.com/houda71",
     location: "Sharqia, Egypt",
     tagline: "Driven Engineer with hands-on FortiGate, CCNP Security, and CCNA skills, eager to apply expertise in security operations and network infrastructure.",
     summary: "A recent graduated Electronics and Communications Engineer with knowledge in FortiGate Firewall (NSE4), CCNP Security, and CCNA, passionate about advancing my career in network security. With hands-on skills in configuring routers, switches, and firewalls, and proficiency in tools like Wireshark and GNS3. I am eager to contribute to innovative security operations while continuously growing my technical expertise.",
