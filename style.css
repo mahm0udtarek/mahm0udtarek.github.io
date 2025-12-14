@@ -2,10 +2,13 @@
 
 /* --- Core Variables & Theme --- */
 :root {
-    --bg-color: #0b0f19; /* Deep space blue-black */
+    --bg-color: #0b0f19;
+    /* Deep space blue-black */
     --text-color: #e2e8f0;
-    --accent-primary: #0ea5e9; /* Sky 500 */
-    --accent-secondary: #6366f1; /* Indigo 500 */
+    --accent-primary: #0ea5e9;
+    /* Sky 500 */
+    --accent-secondary: #6366f1;
+    /* Indigo 500 */
     --glass-bg: rgba(17, 24, 39, 0.7);
     --glass-border: rgba(56, 189, 248, 0.2);
 }
@@ -20,7 +23,7 @@ body {
 /* --- Dynamic Background --- */
 .tech-grid-bg {
     background-color: var(--bg-color);
-    background-image: 
+    background-image:
         radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
         linear-gradient(0deg, transparent 95%, rgba(255, 255, 255, 0.03) 95%),
         linear-gradient(90deg, transparent 95%, rgba(255, 255, 255, 0.03) 95%);
@@ -58,8 +61,15 @@ body {
 
 /* --- Animations --- */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .reveal {
@@ -79,6 +89,35 @@ body {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* --- Slider & Toggle --- */
+.toggle-active {
+    background-color: #0284c7;
+    /* Sky 600 */
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.25);
+}
+
+.toggle-inactive {
+    background-color: #1f2937;
+    /* Gray 800 */
+    color: #9ca3af;
+    /* Gray 400 */
+    border: 1px solid #374151;
+    /* Gray 700 */
+}
+
+/* Ensure no scrollbar appears during transition */
+#slider-container {
+    touch-action: pan-y pinch-zoom;
 }

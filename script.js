@@ -45,10 +45,9 @@ const profileData = {
             title: "Future Goals",
             icon: '<svg class="w-8 h-8 text-sky-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>',
             list: [
-                "Virtualization (vSphere)",
                 "CCNP ENCORE",
+                "Virtualization (vSphere)",
                 "Red Hat Linux",
-                "EJPTv2 Certification"
             ]
         }
     ],
@@ -82,13 +81,23 @@ const profileData = {
         }
     ],
 
+    labs: [
+        {
+            title: "FortiGate VPN Lab",
+            image: "images/lab_vpn.png",
+            link: "#",
+            type: "GNS3 Topology"
+        },
+
+    ],
+
     educationAndCourses: [
         {
             type: 'Education',
             year: 'Jan 2019 - 2024',
             title: 'Bachelor of Engineering',
             institution: '10th of Ramadan - Higher Technology Institute',
-            details: 'GPA: 2.7. Electronics and Communications.'
+            details: 'Very Good. Electronics and Communications.'
         },
         {
             type: 'Certification',
@@ -215,32 +224,108 @@ document.addEventListener('DOMContentLoaded', () => {
         }).join('');
     }
 
-    // --- Guide Books Section ---
-    const booksGrid = document.getElementById('books-grid');
-    if (booksGrid) {
-        booksGrid.innerHTML = profileData.books.map(book => {
-            const isComingSoon = book.comingSoon;
-            const linkAttrs = isComingSoon ? 'href="javascript:void(0)" class="cursor-default group relative block h-96 rounded-2xl overflow-hidden shadow-2xl reveal grayscale"' : `href="${book.link}" target="_blank" class="group relative block h-96 rounded-2xl overflow-hidden shadow-2xl hover:shadow-sky-500/50 transition-all duration-500 transform hover:-translate-y-2 reveal"`;
-            const buttonContent = isComingSoon
-                ? `<span class="text-yellow-500 font-bold flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Coming Soon</span>`
-                : `<div class="flex items-center text-gray-300 text-sm font-medium group-hover:text-white transition-colors"><span>Download Guide</span><svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></div>`;
-            const imageClass = isComingSoon ? "w-full h-full object-cover opacity-50" : "w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700";
+    // --- Guide Books & Labs Rendering ---
+    const renderCards = (data, containerId, isBook = true) => {
+        const container = document.getElementById(containerId);
+        if (container && data) {
+            container.innerHTML = data.map(item => {
+                const isComingSoon = item.comingSoon;
+                // Use a default image if not present (handled by user creating images later or placeholders)
+                // For now assuming images exist or broken image icon will show.
+                // Using a generic placeholder if image path might be missing.
+                const imgPath = item.image;
 
-            return `
-            <a ${linkAttrs}>
-                <div class="absolute inset-0 bg-gray-900">
-                    <img src="${book.image}" alt="${book.title}" class="${imageClass}">
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
-                ${isComingSoon ? '<div class="absolute top-4 right-4 bg-yellow-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">COMING SOON</div>' : ''}
-                <div class="absolute bottom-0 left-0 p-8 w-full">
-                    <span class="inline-block px-3 py-1 bg-sky-600 text-white text-xs font-bold rounded-full mb-3 shadow-lg">${book.edition}</span>
-                    <h4 class="text-2xl font-bold text-white mb-2 ${!isComingSoon ? 'group-hover:text-sky-400 transition-colors' : ''}">${book.title}</h4>
-                    ${buttonContent}
-                </div>
-            </a>
-            `;
-        }).join('');
+                const linkAttrs = isComingSoon ? 'href="javascript:void(0)" class="cursor-default group relative block h-96 rounded-2xl overflow-hidden shadow-2xl reveal grayscale"' : `href="${item.link}" target="_blank" class="group relative block h-96 rounded-2xl overflow-hidden shadow-2xl hover:shadow-sky-500/50 transition-all duration-500 transform hover:-translate-y-2 reveal"`;
+
+                const buttonContent = isComingSoon
+                    ? `<span class="text-yellow-500 font-bold flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Coming Soon</span>`
+                    : `<div class="flex items-center text-gray-300 text-sm font-medium group-hover:text-white transition-colors"><span>${isBook ? 'Download Guide' : 'View Lab Topology'}</span><svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></div>`;
+
+                const imageClass = isComingSoon ? "w-full h-full object-cover opacity-50" : "w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700";
+                const label = isBook ? item.edition : item.type;
+
+                return `
+                <a ${linkAttrs}>
+                    <div class="absolute inset-0 bg-gray-900 flex items-center justify-center overflow-hidden">
+                        <!-- Placeholder for missing images to look better -->
+                         <div class="absolute inset-0 bg-gray-800 animate-pulse -z-10"></div>
+                        <img src="${imgPath}" alt="${item.title}" class="${imageClass}" onerror="this.src='https://via.placeholder.com/400x600/1e293b/0ea5e9?text=${encodeURIComponent(item.title)}'">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
+                    ${isComingSoon ? '<div class="absolute top-4 right-4 bg-yellow-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">COMING SOON</div>' : ''}
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <span class="inline-block px-3 py-1 bg-sky-600 text-white text-xs font-bold rounded-full mb-3 shadow-lg">${label}</span>
+                        <h4 class="text-2xl font-bold text-white mb-2 ${!isComingSoon ? 'group-hover:text-sky-400 transition-colors' : ''}">${item.title}</h4>
+                        ${buttonContent}
+                    </div>
+                </a>
+                `;
+            }).join('');
+        }
+    };
+
+    renderCards(profileData.books, 'books-grid', true);
+    renderCards(profileData.labs, 'labs-grid', false);
+
+
+    // --- Slider & Toggle Logic ---
+    const sliderTrack = document.getElementById('slider-track');
+    const btnBooks = document.getElementById('btn-books');
+    const btnLabs = document.getElementById('btn-labs');
+
+    if (sliderTrack && btnBooks && btnLabs) {
+        let currentView = 'books';
+
+        const updateView = (view) => {
+            currentView = view;
+            if (view === 'books') {
+                sliderTrack.style.transform = 'translateX(0%)';
+                btnBooks.classList.add('toggle-active');
+                btnBooks.classList.remove('toggle-inactive');
+                btnLabs.classList.add('toggle-inactive');
+                btnLabs.classList.remove('toggle-active');
+            } else {
+                sliderTrack.style.transform = 'translateX(-50%)';
+                btnLabs.classList.add('toggle-active');
+                btnLabs.classList.remove('toggle-inactive');
+                btnBooks.classList.add('toggle-inactive');
+                btnBooks.classList.remove('toggle-active');
+            }
+        };
+
+        // Initialize styles
+        updateView('books');
+
+        btnBooks.addEventListener('click', () => updateView('books'));
+        btnLabs.addEventListener('click', () => updateView('labs'));
+
+        // Swipe Functionality
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const sliderContainer = document.getElementById('slider-container'); // Correct ID from index.html
+
+        if (sliderContainer) {
+            sliderContainer.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            sliderContainer.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+
+            const handleSwipe = () => {
+                const swipeThreshold = 50;
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    // Swiped Left -> Go to Labs
+                    updateView('labs');
+                }
+                if (touchEndX > touchStartX + swipeThreshold) {
+                    // Swiped Right -> Go to Books
+                    updateView('books');
+                }
+            }
+        }
     }
 
     // --- Contact Links ---
