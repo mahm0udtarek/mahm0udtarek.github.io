@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (el) el.innerHTML = html;
     };
 
-    setHTML('nav-name', `${profileData.name}<span class="text-sky-500">.netsec</span>`);
+    setHTML('nav-name', `${profileData.name}`);
     setText('hero-name', profileData.name.toUpperCase());
 
     // Typing Effect for Title
