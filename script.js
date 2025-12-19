@@ -558,7 +558,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <div class="roadmap-line"></div>
                             ` : ''}
                             
-                            <div class="w-80 border-2 border-sky-600 rounded-xl shadow-lg hover:shadow-xl hover:border-sky-400 transition-all duration-300">
+                            <div class="w-[85vw] md:w-80 border-2 border-sky-600 rounded-xl shadow-lg hover:shadow-xl hover:border-sky-400 transition-all duration-300">
                                 <div class="bg-gray-900 rounded-xl p-6">
                                     <div class="text-center mb-4">
                                         <div class="w-10 h-10 mx-auto mb-3 rounded-full bg-sky-600 flex items-center justify-center font-bold text-white text-lg">
