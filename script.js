@@ -83,7 +83,7 @@ const profileData = {
 
     labs: [
         {
-            title: "FortiGate VPN Lab",
+            title: "Secure Campus Network",
             image: "images/lab_vpn.png",
             link: "#",
             type: "GNS3 Topology"
@@ -390,4 +390,40 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- Visitor Counter Logic ---
+    const updateVisitorCount = async () => {
+        const countElement = document.getElementById('visitor-count');
+        if (!countElement) return;
+
+        try {
+            const hasBeenTracked = localStorage.getItem('mahmoud_tarek_visitor_tracked');
+            const namespace = 'mahmoud-tarek-cv';
+            const key = 'visits';
+
+            let endpoint = `https://api.counterapi.dev/v1/${namespace}/${key}`;
+            if (!hasBeenTracked) {
+                endpoint += '/up';
+            }
+
+            const response = await fetch(endpoint);
+            if (response.ok) {
+                const data = await response.json();
+                countElement.textContent = data.count.toLocaleString();
+                countElement.classList.remove('animate-pulse');
+
+                if (!hasBeenTracked) {
+                    localStorage.setItem('mahmoud_tarek_visitor_tracked', 'true');
+                }
+            } else {
+                console.error('Failed to fetch visitor count');
+                countElement.textContent = '---';
+            }
+        } catch (error) {
+            console.error('Error in visitor tracking:', error);
+            countElement.textContent = '---';
+        }
+    };
+
+    updateVisitorCount();
 });
