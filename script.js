@@ -396,6 +396,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const countElement = document.getElementById('visitor-count');
         if (!countElement) return;
 
+        // Skip fetch if running locally to avoid console error (CORS restriction)
+        if (window.location.protocol === 'file:') {
+            console.warn('Visitor counter disabled: Running on local file protocol.');
+            countElement.textContent = '--- (Local)';
+            countElement.classList.remove('animate-pulse');
+            return;
+        }
+
         // Use setTimeout to ensure this doesn't block the initial page load event
         setTimeout(async () => {
             const controller = new AbortController();
