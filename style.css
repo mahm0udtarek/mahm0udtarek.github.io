@@ -166,6 +166,111 @@ body {
     outline-offset: 2px;
 }
 
+/* --- SOC Roadmap Styles (Simple Horizontal) --- */
+.roadmap-node {
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* CSS-based connecting line */
+.roadmap-line {
+    position: absolute;
+    top: 50%;
+    right: -32px;
+    width: 32px;
+    height: 3px;
+    background: linear-gradient(90deg, #0ea5e9, #6366f1);
+    transform: translateY(-50%);
+}
+
+.roadmap-node:hover .roadmap-line {
+    background: #0ea5e9;
+    height: 4px;
+}
+
+/* Scrollable topics and resources without visible scrollbar */
+.topics-scroll,
+.resources-scroll {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+.topics-scroll::-webkit-scrollbar,
+.resources-scroll::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
+}
+
+
+/* Topic hover effect */
+.topic-item-hover {
+    cursor: pointer;
+}
+
+.topic-item-hover:hover {
+    background: rgba(14, 165, 233, 0.1);
+    transform: translateX(4px);
+}
+
+/* Topic section header */
+.topic-section-header:hover {
+    color: #0ea5e9;
+}
+
+.topic-chevron {
+    transition: transform 0.3s ease;
+    font-size: 10px;
+}
+
+/* Topics content slide animation */
+.topics-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.topics-content.hidden {
+    max-height: 0;
+}
+
+/* Topic tooltip */
+.topic-tooltip {
+    animation: fadeInTooltip 0.2s ease;
+    pointer-events: none;
+}
+
+@keyframes fadeInTooltip {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Horizontal scroll styling */
+.overflow-x-auto::-webkit-scrollbar {
+    height: 8px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+    background: rgba(17, 24, 39, 0.5);
+    border-radius: 10px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #0ea5e9, #6366f1);
+    border-radius: 10px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+    background: #0ea5e9;
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
 

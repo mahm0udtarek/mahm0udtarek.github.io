@@ -1,4 +1,4 @@
-// --- 1. CONFIGURATION DATA ---
+﻿// --- 1. CONFIGURATION DATA ---
 const profileData = {
     showDemoLabel: true,
     name: "Mahmoud Tarek",
@@ -6,7 +6,7 @@ const profileData = {
     email: "mahmoud.tariek7@gmail.com",
     linkedin: "https://www.linkedin.com/in/mahm0udtarek/",
     github: "https://github.com/houda71",
-    location: "Sharqia, Egypt",
+    location: "Egypt",
     tagline: "Driven Engineer with hands-on FortiGate, CCNP Security, and CCNA skills, eager to apply expertise in security operations and network infrastructure.",
     summary: "A recent graduated Electronics and Communications Engineer with knowledge in FortiGate Firewall (NSE4), CCNP Security, and CCNA, passionate about advancing my career in network security. With hands-on skills in configuring routers, switches, and firewalls, and proficiency in tools like Wireshark and GNS3. I am eager to contribute to innovative security operations while continuously growing my technical expertise.",
 
@@ -97,7 +97,7 @@ const profileData = {
             year: 'Jan 2019 - 2024',
             title: 'Bachelor of Engineering',
             institution: '10th of Ramadan - Higher Technology Institute',
-            details: 'Very Good. Electronics and Communications.'
+            details: 'Department of Electronics and Communications.'
         },
         {
             type: 'Certification',
@@ -134,7 +134,235 @@ const profileData = {
             institution: 'Tshoot',
             details: 'Foundational networking.'
         },
-    ]
+    ],
+
+    socRoadmap: {
+        title: "SOC Analyst Radmap by Mostafa Yahia",
+        description: "A comprehensive learning path for aspiring SOC Analysts",
+        stages: [
+            {
+                id: 'networking',
+                title: 'Networking Fundamentals',
+                subtitle: 'Study networking theory from Network+ or CCNA',
+                color: 'from-blue-600 to-cyan-600',
+                note: 'Do not spend excessive time - focus on theory only',
+                topics: [
+                    { name: 'OSI Layers', tooltip: 'Essential for understanding how network traffic flows and where security controls operate' },
+                    { name: 'IP Addressing', tooltip: 'Critical for identifying attack sources and understanding network segmentation' },
+                    { name: 'Ports and Protocols', tooltip: 'Know common ports to quickly identify suspicious traffic patterns' },
+                    { name: 'Routing & Switching', tooltip: 'Understanding traffic paths helps in incident investigation' },
+                    { name: 'Port Security', tooltip: 'First line of defense against unauthorized network access' },
+                    { name: 'DNS & DHCP', tooltip: 'Often targeted in attacks - understand DNS for threat detection' },
+                    { name: 'TCP vs UDP', tooltip: 'Different protocols behave differently during attacks' },
+                    { name: 'ARP Table', tooltip: 'ARP poisoning is a common attack vector in internal networks' }
+                ]
+            },
+            {
+                id: 'windows',
+                title: 'Windows Environment',
+                subtitle: 'Enterprise Windows fundamentals',
+                color: 'from-indigo-600 to-purple-600',
+                note: 'Covered in the first part of MCSA',
+                topics: [
+                    { name: 'Active Directory Services', tooltip: 'AD is the backbone of enterprise authentication and a prime attack target' },
+                    { name: 'Windows Domain Environment', tooltip: 'Understanding domains is crucial for detecting lateral movement' },
+                    { name: 'Domain Controller', tooltip: 'Compromised DCs mean full network compromise' },
+                    { name: 'Group Policy Objects (GPO)', tooltip: 'GPOs can be exploited for persistence and privilege escalation' }
+                ]
+            },
+            {
+                id: 'linux',
+                title: 'Linux Skills',
+                subtitle: 'Hands-on familiarity with Linux',
+                color: 'from-purple-600 to-pink-600',
+                note: 'Not mandatory for most SOC Analysts, but very helpful later',
+                topics: [
+                    { name: 'Basic Linux Commands', tooltip: 'Navigate and investigate Linux systems during incidents' },
+                    { name: 'File Permissions', tooltip: 'Identify unauthorized access and privilege escalation attempts' },
+                    { name: 'Log Files', tooltip: 'Linux logs are goldmines for forensic investigation' }
+                ]
+            },
+            {
+                id: 'security',
+                title: 'Security Fundamentals',
+                subtitle: 'Start after completing networking and OS basics',
+                color: 'from-pink-600 to-red-600',
+                resources: [
+                    {
+                        type: 'video',
+                        title: 'Introductory Cybersecurity Series',
+                        url: 'https://www.youtube.com/playlist?list=PLdUDP-atVHBpsvwINVbfbPAasnQnuCxGk',
+                        description: 'Start here for security fundamentals'
+                    },
+                    {
+                        type: 'book',
+                        title: 'SANS SEC401 (Books 2 & 3)',
+                        description: 'Security fundamentals from SANS'
+                    },
+                    {
+                        type: 'book',
+                        title: 'SANS SEC511 (Book 2)',
+                        description: 'After SEC401, study this for deeper knowledge'
+                    }
+                ]
+            },
+            {
+                id: 'incident',
+                title: 'Incident Handling',
+                subtitle: 'Understanding the IR lifecycle',
+                color: 'from-red-600 to-orange-600',
+                topics: [
+                    { name: 'Detection', tooltip: 'First step: identify that an incident has occurred' },
+                    { name: 'Analysis', tooltip: 'Determine scope, severity, and attack vectors' },
+                    { name: 'Containment', tooltip: 'Stop the attack from spreading' },
+                    { name: 'Eradication', tooltip: 'Remove the threat from the environment' },
+                    { name: 'Recovery', tooltip: 'Restore systems to normal operation' },
+                    { name: 'Lessons Learned', tooltip: 'Document and improve processes post-incident' }
+                ],
+                resources: [
+                    {
+                        type: 'book',
+                        title: 'SANS 504H (Book 1)',
+                        description: 'Comprehensive incident handling guide'
+                    },
+                    {
+                        type: 'article',
+                        title: 'Community Summary by Khaled Allam',
+                        url: 'https://www.facebook.com/groups/371869175117889/permalink/493258529645619/',
+                        description: 'Quick reference summary'
+                    },
+                    {
+                        type: 'video',
+                        title: 'Crash Course Series',
+                        url: 'https://www.youtube.com/watch?v=Lh0bmeDQGhA&list=PL-ychzBA8c71ph1BVH26-h_SMYQnVGOaW',
+                        description: 'Fast-track option if in a hurry'
+                    },
+                    {
+                        type: 'video',
+                        title: 'Incident Handling Deep Dive',
+                        url: 'https://www.youtube.com/watch?v=laG15T1oRyI',
+                        description: 'Single comprehensive video'
+                    }
+                ]
+            },
+            {
+                id: 'siem',
+                title: 'SIEM Solutions',
+                subtitle: 'Log collection, correlation, and alerting',
+                color: 'from-orange-600 to-yellow-600',
+                note: 'IBM QRadar is one of the most widely used SIEM solutions in Egypt',
+                description: 'SIEM platforms are the central nervous system of SOC operations',
+                topics: [
+                    { name: 'Log Collection', tooltip: 'Aggregate logs from all sources into one platform' },
+                    { name: 'Correlation Rules', tooltip: 'Detect attack patterns across multiple log sources' },
+                    { name: 'Alerts', tooltip: 'Automated notifications for suspicious activity' },
+                    { name: 'Dashboards', tooltip: 'Visual representation of security posture' }
+                ],
+                resources: [
+                    {
+                        type: 'video',
+                        title: 'IBM QRadar Training Series',
+                        url: 'https://www.youtube.com/watch?v=lcgWgavJ-vc&list=PL-ychzBA8c71hZHAMIxkbMBXWaZ3EHxlg',
+                        description: 'Complete QRadar hands-on training'
+                    }
+                ]
+            },
+            {
+                id: 'investigation',
+                title: 'SOC Investigation',
+                subtitle: 'Before and during SOC work',
+                color: 'from-yellow-600 to-green-600',
+                note: 'Useful before starting work and while working as a SOC Analyst',
+                topics: [
+                    { name: 'Alert Triage', tooltip: 'Prioritize and categorize incoming alerts efficiently' },
+                    { name: 'Incident Investigation', tooltip: 'Deep dive into alerts to determine true positives' },
+                    { name: 'Attack Timeline Reconstruction', tooltip: 'Build a chronological view of attacker actions' },
+                    { name: 'Decision Making', tooltip: 'Make critical calls during active incidents' }
+                ],
+                resources: [
+                    {
+                        type: 'video',
+                        title: 'SOC Investigation Course',
+                        url: 'https://www.youtube.com/playlist?list=PLdUDP-atVHBoDae43tcUZnW1YsjoPJRvP',
+                        description: 'Practical investigation techniques and workflows'
+                    }
+                ]
+            },
+            {
+                id: 'practice-labs',
+                title: 'Practice Labs & Resources',
+                subtitle: 'Hands-on Rooms & Challenges',
+                color: 'from-emerald-600 to-teal-600',
+                note: 'Note: There is no specific order to follow (مفيش ترتيب معين تمشي عليه)',
+                description: 'A curated collection of free rooms and challenges to apply your knowledge.',
+                topics: [
+                    { name: 'TryHackMe Rooms', tooltip: 'Covering Linux, Networking, SOC, Forensics, and more' },
+                    { name: 'Blue Team Labs', tooltip: 'Defensive security challenges' },
+                    { name: 'Cyber Defenders', tooltip: 'Blue team CTFs and practice' },
+                    { name: 'Let\'s Defend', tooltip: 'Investigation simulation platform' },
+                    { name: 'Splunk & QRadar', tooltip: 'SIEM specific training and challenges' }
+                ],
+                resources: [
+                    // Fundamentals
+                    { type: 'link', title: 'Linux Fundamentals Part 1', url: 'https://tryhackme.com/r/room/linuxfundamentalspart1' },
+                    { type: 'link', title: '[Easy] Intro to Networking', url: 'https://tryhackme.com/room/introtonetworking' },
+                    { type: 'link', title: '[Easy] What is Networking', url: 'https://tryhackme.com/r/room/whatisnetworking' },
+                    { type: 'link', title: '[Easy] HTTP in Detail', url: 'https://tryhackme.com/r/room/httpindetail' },
+                    { type: 'link', title: '[Easy] DNS in Detail', url: 'https://tryhackme.com/r/room/dnsindetail' },
+                    { type: 'link', title: '[Mid] Firmware (rfirmware)', url: 'https://tryhackme.com/room/rfirmware' },
+
+                    // SOC Mentality
+                    { type: 'link', title: '[Easy] Pyramid of Pain', url: 'https://tryhackme.com/r/room/pyramidofpainax' },
+                    { type: 'link', title: '[Easy] Cyber Kill Chain', url: 'https://tryhackme.com/r/room/cyberkillchainzmt' },
+
+                    // Log & SIEM
+                    { type: 'link', title: '[Easy] Intro to Logs', url: 'https://tryhackme.com/r/room/introtologs' },
+                    { type: 'link', title: '[Easy] Servidae', url: 'https://tryhackme.com/r/room/servidae' },
+                    { type: 'link', title: '[Easy] Intro to SIEM', url: 'https://tryhackme.com/r/room/introtosiem' },
+                    { type: 'link', title: '[Mid] Splunk: Exploring SPL', url: 'https://tryhackme.com/r/room/splunkexploringspl' },
+
+                    // Threat Hunting & Intel
+                    { type: 'link', title: '[Easy] Intro to Threat Hunting', url: 'https://tryhackme.com/r/room/introductiontothreathunting' },
+                    { type: 'link', title: '[Mid] Cryptography Intro', url: 'https://tryhackme.com/r/room/cryptographyintro' },
+                    { type: 'link', title: '[Easy] Cyber Threat Intel', url: 'https://tryhackme.com/r/room/cyberthreatintel' },
+                    { type: 'link', title: '[Easy] Threat Intel Tools', url: 'https://tryhackme.com/r/room/threatinteltools' },
+                    { type: 'link', title: '[Mid] Threat Intel for SOC', url: 'https://tryhackme.com/r/room/threatintelligenceforsoc' },
+
+                    // OSINT & Forensics
+                    { type: 'link', title: '[Easy] OhSINT', url: 'https://tryhackme.com/r/room/ohsint' },
+                    { type: 'link', title: '[Easy] Intro DFIR', url: 'https://tryhackme.com/r/room/introductoryroomdfirmodule' },
+                    { type: 'link', title: '[Easy] Memory Forensics', url: 'https://tryhackme.com/r/room/memoryforensics' },
+                    { type: 'link', title: '[Easy] Forensic Imaging', url: 'https://tryhackme.com/r/room/forensicimaging' },
+                    { type: 'link', title: '[Mid] Windows Forensics 1', url: 'https://tryhackme.com/r/room/windowsforensics1' },
+
+                    // Malware & Tools
+                    { type: 'link', title: '[Easy] History of Malware', url: 'https://tryhackme.com/r/room/historyofmalware' },
+                    { type: 'link', title: '[Easy] Intro Detection Eng.', url: 'https://tryhackme.com/r/room/introtodetectionengineering' },
+                    { type: 'link', title: '[Easy] Malware Introductory', url: 'https://tryhackme.com/r/room/malmalintroductory' },
+                    { type: 'link', title: '[Easy] OWASP Top 10', url: 'https://tryhackme.com/r/room/owasptop10' },
+                    { type: 'link', title: '[Easy] Further Nmap', url: 'https://tryhackme.com/r/room/furthernmap' },
+                    { type: 'link', title: '[Easy] Hydra', url: 'https://tryhackme.com/r/room/hydra' },
+                    { type: 'link', title: '[Mid] Snort', url: 'https://tryhackme.com/r/room/snort' },
+                    { type: 'link', title: '[Mid] KAPE', url: 'https://tryhackme.com/r/room/kape' },
+                    { type: 'link', title: '[Mid] Wireshark (TShark)', url: 'https://tryhackme.com/r/room/tshark' },
+
+                    // Platforms & Challenges
+                    { type: 'link', title: 'Let\'s Defend (Practice Free)', url: 'https://www.letsdefend.io/' },
+                    { type: 'link', title: 'Cyber Defenders', url: 'https://cyberdefenders.org/' },
+                    { type: 'link', title: 'Blue Team Labs', url: 'https://blueteamlabs.online/' },
+                    { type: 'link', title: 'PicoCTF', url: 'https://picoctf.org/' },
+
+                    // SIEM Specific
+                    { type: 'link', title: 'Splunk Free Training', url: 'https://www.splunk.com/en_us/training.html' },
+                    { type: 'link', title: 'Splunk BOTS v1', url: 'https://github.com/splunk/botsv1' },
+                    { type: 'link', title: 'Splunk BOTS v2', url: 'https://github.com/splunk/botsv2' },
+                    { type: 'link', title: 'Splunk BOTS v3', url: 'https://github.com/splunk/botsv3' },
+                    { type: 'link', title: 'IBM QRadar Community', url: 'https://community.ibm.com/community/user/security/communities/community-home/recent-community-blogs?communitykey=d3969e06-96eb-4a11-a9c1-52e24dc52096&tab=recentcommunityblogsdashboard' },
+                    { type: 'link', title: 'QRadar 101 (CyberDefenders)', url: 'https://cyberdefenders.org/blueteam-ctf-challenges/qradar101/' }
+                ]
+            }
+        ]
+    }
 };
 
 // --- 2. LOGIC & RENDERING ---
@@ -309,29 +537,166 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCards(profileData.books, 'books-grid', true);
     renderCards(profileData.labs, 'labs-grid', false);
 
+    // --- Simple Horizontal SOC Roadmap ---
+    const renderSOCRoadmap = (data, containerId) => {
+        const container = document.getElementById(containerId);
+        if (!container || !data) return;
+
+        const { title, description, stages } = data;
+
+        container.innerHTML = `
+            <div class="text-center mb-8 reveal">
+                <h3 class="text-3xl font-bold text-white mb-2">${title}</h3>
+                <p class="text-gray-400">${description}</p>
+            </div>
+            
+            <div class="overflow-x-auto pb-8">
+                <div class="flex gap-8 min-w-max px-4 py-8 items-start">
+                    ${stages.map((stage, index) => `
+                        <div class="roadmap-node reveal relative" style="animation-delay: ${index * 0.1}s">
+                            ${index < stages.length - 1 ? `
+                                <div class="roadmap-line"></div>
+                            ` : ''}
+                            
+                            <div class="w-80 border-2 border-sky-600 rounded-xl shadow-lg hover:shadow-xl hover:border-sky-400 transition-all duration-300">
+                                <div class="bg-gray-900 rounded-xl p-6">
+                                    <div class="text-center mb-4">
+                                        <div class="w-10 h-10 mx-auto mb-3 rounded-full bg-sky-600 flex items-center justify-center font-bold text-white text-lg">
+                                            ${index + 1}
+                                        </div>
+                                        <h4 class="text-xl font-bold text-white mb-2">${stage.title}</h4>
+                                        <p class="text-gray-400 text-sm">${stage.subtitle}</p>
+                                    </div>
+                                    
+                                    ${stage.note ? `
+                                        <div class="mb-4 p-2 bg-sky-500/10 border border-sky-500/30 rounded-lg text-sky-400 text-xs text-center">
+                                             ${stage.note}
+                                        </div>
+                                    ` : ''}
+                                    
+                                    ${stage.description ? `
+                                        <div class="mb-4 text-gray-300 text-sm text-center italic">
+                                            ${stage.description}
+                                        </div>
+                                    ` : ''}
+                                    
+                                    ${stage.topics ? `
+                                        <div class="mb-4">
+                                            <div class="flex items-center justify-between cursor-pointer topic-section-header" onclick="toggleTopics('${stage.id}')">
+                                                <h5 class="text-xs font-bold text-gray-400 uppercase tracking-wide">Topics</h5>
+                                                <span class="topic-chevron text-gray-400 transition-transform">▼</span>
+                                            </div>
+                                            <div class="topics-content hidden mt-2" data-topics="${stage.id}">
+                                                <div class="topics-scroll max-h-48 overflow-y-auto pr-2">
+                                                    <ul class="space-y-0.5 text-sm text-gray-300">
+                                                        ${stage.topics.map((topic, idx) => `
+                                                            <li class="topic-item-hover flex items-start gap-2 p-1 rounded-lg transition-all duration-200 relative group">
+                                                                <span class="text-sky-400 mt-0.5">•</span>
+                                                                <span>${topic.name}</span>
+                                                                <div class="topic-tooltip hidden group-hover:block absolute left-0 bottom-full mb-2 w-64 p-3 bg-gray-800 border border-sky-500/30 rounded-lg shadow-xl z-50 text-xs">
+                                                                    ${topic.tooltip}
+                                                                    <div class="absolute top-full left-6 -mt-1 w-3 h-3 bg-gray-800 border-r border-b border-sky-500/30 transform rotate-45"></div>
+                                                                </div>
+                                                            </li>
+                                                        `).join('')}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ` : ''}
+                                    
+                                    ${stage.resources ? `
+                                        <div>
+                                            <h5 class="text-xs font-bold text-gray-400 mb-2 uppercase tracking-wide">Resources</h5>
+                                            <div class="resources-scroll max-h-40 overflow-y-auto pr-2">
+                                                <div class="space-y-2">
+                                                    ${stage.resources.map(resource => `
+                                                    ${resource.url ? `
+                                                        <a href="${resource.url}" target="_blank" rel="noopener noreferrer" 
+                                                           class="block p-2 bg-gray-800/50 rounded-lg hover:bg-gray-800 transition text-sky-400 hover:text-sky-300 text-sm">
+                                                            <div class="flex items-center gap-2">
+                                                                <span>${resource.type === 'video' ? '' : resource.type === 'book' ? '' : ''}</span>
+                                                                <span class="flex-1 truncate">${resource.title}</span>
+                                                                <span class="text-xs"></span>
+                                                            </div>
+                                                        </a>
+                                                    ` : `
+                                                        <div class="p-2 bg-gray-800/50 rounded-lg text-sm text-gray-300">
+                                                            <div class="flex items-center gap-2">
+                                                                <span>${resource.type === 'book' ? '' : ''}</span>
+                                                                <span class="flex-1 truncate">${resource.title}</span>
+                                                            </div>
+                                                        </div>
+                                                    `}
+                                                    `).join('')}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            
+            <div class="text-center text-gray-500 text-sm mt-4">
+                <span class="text-sky-400"></span> Scroll horizontally to explore the complete roadmap
+            </div>
+        `;
+    };
+
+    renderSOCRoadmap(profileData.socRoadmap, 'soc-roadmap-container');
+
+    // Toggle topics visibility
+    window.toggleTopics = (stageId) => {
+        const content = document.querySelector(`[data-topics="${stageId}"]`);
+        const header = content?.previousElementSibling;
+        const chevron = header?.querySelector('.topic-chevron');
+
+        if (content && chevron) {
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                chevron.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                chevron.style.transform = 'rotate(0deg)';
+            }
+        }
+    };
+
 
     // --- Slider & Toggle Logic ---
     const sliderTrack = document.getElementById('slider-track');
     const btnBooks = document.getElementById('btn-books');
     const btnLabs = document.getElementById('btn-labs');
+    const btnRoadmap = document.getElementById('btn-roadmap');
 
-    if (sliderTrack && btnBooks && btnLabs) {
+    if (sliderTrack && btnBooks && btnLabs && btnRoadmap) {
         let currentView = 'books';
 
         const updateView = (view) => {
             currentView = view;
+
+            // Reset all buttons
+            [btnBooks, btnLabs, btnRoadmap].forEach(btn => {
+                btn.classList.remove('toggle-active');
+                btn.classList.add('toggle-inactive');
+            });
+
+            // Update slider position and active button
             if (view === 'books') {
                 sliderTrack.style.transform = 'translateX(0%)';
                 btnBooks.classList.add('toggle-active');
                 btnBooks.classList.remove('toggle-inactive');
-                btnLabs.classList.add('toggle-inactive');
-                btnLabs.classList.remove('toggle-active');
-            } else {
-                sliderTrack.style.transform = 'translateX(-50%)';
+            } else if (view === 'labs') {
+                sliderTrack.style.transform = 'translateX(-33.333%)';
                 btnLabs.classList.add('toggle-active');
                 btnLabs.classList.remove('toggle-inactive');
-                btnBooks.classList.add('toggle-inactive');
-                btnBooks.classList.remove('toggle-active');
+            } else if (view === 'roadmap') {
+                sliderTrack.style.transform = 'translateX(-66.666%)';
+                btnRoadmap.classList.add('toggle-active');
+                btnRoadmap.classList.remove('toggle-inactive');
             }
         };
 
@@ -340,6 +705,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         btnBooks.addEventListener('click', () => updateView('books'));
         btnLabs.addEventListener('click', () => updateView('labs'));
+        btnRoadmap.addEventListener('click', () => updateView('roadmap'));
 
         // Swipe Functionality
         let touchStartX = 0;
@@ -359,12 +725,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const handleSwipe = () => {
                 const swipeThreshold = 50;
                 if (touchEndX < touchStartX - swipeThreshold) {
-                    // Swiped Left -> Go to Labs
-                    updateView('labs');
+                    // Swiped Left -> Go to next view
+                    if (currentView === 'books') updateView('labs');
+                    else if (currentView === 'labs') updateView('roadmap');
                 }
                 if (touchEndX > touchStartX + swipeThreshold) {
-                    // Swiped Right -> Go to Books
-                    updateView('books');
+                    // Swiped Right -> Go to previous view
+                    if (currentView === 'roadmap') updateView('labs');
+                    else if (currentView === 'labs') updateView('books');
                 }
             }
         }
@@ -435,3 +803,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+

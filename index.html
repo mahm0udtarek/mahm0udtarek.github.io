@@ -237,25 +237,36 @@
                         class="px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 bg-gray-800 text-gray-400 hover:text-white border border-gray-700">
                         Labs
                     </button>
+                    <button id="btn-roadmap"
+                        class="px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 bg-gray-800 text-gray-400 hover:text-white border border-gray-700">
+                        SOC Roadmap
+                    </button>
                 </div>
             </div>
 
             <!-- Slider Container -->
             <div class="relative w-full max-w-7xl mx-auto overflow-hidden px-4" id="slider-container">
                 <!-- Slider Track -->
-                <div class="flex transition-transform duration-500 ease-out" id="slider-track" style="width: 200%;">
+                <div class="flex transition-transform duration-500 ease-out" id="slider-track" style="width: 300%;">
 
                     <!-- View 1: Books -->
-                    <div class="w-1/2 px-4">
+                    <div class="w-1/3 px-4">
                         <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto" id="books-grid">
                             <!-- Books injected by JS -->
                         </div>
                     </div>
 
                     <!-- View 2: Labs -->
-                    <div class="w-1/2 px-4">
+                    <div class="w-1/3 px-4">
                         <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto" id="labs-grid">
                             <!-- Labs injected by JS -->
+                        </div>
+                    </div>
+
+                    <!-- View 3: SOC Roadmap -->
+                    <div class="w-1/3 px-4">
+                        <div class="roadmap-container" id="soc-roadmap-container">
+                            <!-- Roadmap injected by JS -->
                         </div>
                     </div>
 
