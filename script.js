@@ -141,6 +141,48 @@ const profileData = {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Mobile Menu Logic ---
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+
+            // Toggle aria-expanded
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+
+            // Toggle menu visibility
+            if (isExpanded) {
+                mobileMenu.classList.remove('open');
+                mobileMenu.classList.add('hidden');
+            } else {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('open');
+            }
+        });
+
+        // Close menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                mobileMenu.classList.remove('open');
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Close menu on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenuButton.getAttribute('aria-expanded') === 'true') {
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                mobileMenu.classList.remove('open');
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.focus(); // Return focus to button
+            }
+        });
+    }
+
     // --- Demo Indicator ---
     if (profileData.showDemoLabel) {
         const demoContainer = document.getElementById('demo-indicator-container');
@@ -391,64 +433,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Visitor Counter Logic ---
-    const updateVisitorCount = async () => {
-        const countElement = document.getElementById('visitor-count');
-        if (!countElement) return;
 
-        // Skip fetch if running locally to avoid console error (CORS restriction)
-        if (window.location.protocol === 'file:') {
-            console.warn('Visitor counter disabled: Running on local file protocol.');
-            countElement.textContent = '--- (Local)';
-            countElement.classList.remove('animate-pulse');
-            return;
-        }
-
-        // Use setTimeout to ensure this doesn't block the initial page load event
-        setTimeout(async () => {
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout
-
-            try {
-                const hasBeenTracked = localStorage.getItem('mahmoud_tarek_visitor_tracked');
-                const namespace = 'mahmoud-tarek-cv';
-                const key = 'visits';
-
-                let endpoint = `https://api.counterapi.dev/v1/${namespace}/${key}`;
-                if (!hasBeenTracked) {
-                    endpoint += '/up';
-                }
-
-                const response = await fetch(endpoint, { signal: controller.signal });
-                clearTimeout(timeoutId);
-
-                if (response.ok) {
-                    const data = await response.json();
-                    if (data && typeof data.count === 'number') {
-                        countElement.textContent = data.count.toLocaleString();
-                        countElement.classList.remove('animate-pulse');
-
-                        if (!hasBeenTracked) {
-                            localStorage.setItem('mahmoud_tarek_visitor_tracked', 'true');
-                        }
-                    }
-                } else {
-                    console.error('Visitor API responded with error:', response.status);
-                    countElement.textContent = '---';
-                }
-            } catch (error) {
-                if (error.name === 'AbortError') {
-                    console.error('Visitor API request timed out');
-                } else {
-                    console.error('Error in visitor tracking:', error);
-                }
-                countElement.textContent = '---';
-            } finally {
-                clearTimeout(timeoutId);
-            }
-        }, 100); // Delay slightly to let the browser finish main tasks
-    };
-
-    updateVisitorCount();
 });
-

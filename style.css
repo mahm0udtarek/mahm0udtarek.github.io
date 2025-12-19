@@ -43,6 +43,19 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Screen reader only - for skip link */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
 /* --- Glassmorphism Cards --- */
 .glass-card {
     background: var(--glass-bg);
@@ -120,4 +133,47 @@ body {
 /* Ensure no scrollbar appears during transition */
 #slider-container {
     touch-action: pan-y pinch-zoom;
+}
+
+/* --- Mobile Menu --- */
+.mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.mobile-menu.open {
+    max-height: 400px;
+}
+
+/* Mobile menu icon animation */
+#mobile-menu-button .menu-icon,
+#mobile-menu-button .close-icon {
+    transition: opacity 0.2s ease-in-out;
+}
+
+#mobile-menu-button[aria-expanded="true"] .menu-icon {
+    display: none;
+}
+
+#mobile-menu-button[aria-expanded="true"] .close-icon {
+    display: block;
+}
+
+/* Focus visible styles for accessibility */
+*:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
