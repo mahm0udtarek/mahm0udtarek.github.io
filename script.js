@@ -396,34 +396,51 @@ document.addEventListener('DOMContentLoaded', () => {
         const countElement = document.getElementById('visitor-count');
         if (!countElement) return;
 
-        try {
-            const hasBeenTracked = localStorage.getItem('mahmoud_tarek_visitor_tracked');
-            const namespace = 'mahmoud-tarek-cv';
-            const key = 'visits';
+        // Use setTimeout to ensure this doesn't block the initial page load event
+        setTimeout(async () => {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout
 
-            let endpoint = `https://api.counterapi.dev/v1/${namespace}/${key}`;
-            if (!hasBeenTracked) {
-                endpoint += '/up';
-            }
+            try {
+                const hasBeenTracked = localStorage.getItem('mahmoud_tarek_visitor_tracked');
+                const namespace = 'mahmoud-tarek-cv';
+                const key = 'visits';
 
-            const response = await fetch(endpoint);
-            if (response.ok) {
-                const data = await response.json();
-                countElement.textContent = data.count.toLocaleString();
-                countElement.classList.remove('animate-pulse');
-
+                let endpoint = `https://api.counterapi.dev/v1/${namespace}/${key}`;
                 if (!hasBeenTracked) {
-                    localStorage.setItem('mahmoud_tarek_visitor_tracked', 'true');
+                    endpoint += '/up';
                 }
-            } else {
-                console.error('Failed to fetch visitor count');
+
+                const response = await fetch(endpoint, { signal: controller.signal });
+                clearTimeout(timeoutId);
+
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data && typeof data.count === 'number') {
+                        countElement.textContent = data.count.toLocaleString();
+                        countElement.classList.remove('animate-pulse');
+
+                        if (!hasBeenTracked) {
+                            localStorage.setItem('mahmoud_tarek_visitor_tracked', 'true');
+                        }
+                    }
+                } else {
+                    console.error('Visitor API responded with error:', response.status);
+                    countElement.textContent = '---';
+                }
+            } catch (error) {
+                if (error.name === 'AbortError') {
+                    console.error('Visitor API request timed out');
+                } else {
+                    console.error('Error in visitor tracking:', error);
+                }
                 countElement.textContent = '---';
+            } finally {
+                clearTimeout(timeoutId);
             }
-        } catch (error) {
-            console.error('Error in visitor tracking:', error);
-            countElement.textContent = '---';
-        }
+        }, 100); // Delay slightly to let the browser finish main tasks
     };
 
     updateVisitorCount();
 });
+
