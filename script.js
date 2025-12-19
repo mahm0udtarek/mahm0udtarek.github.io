@@ -505,7 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Using a generic placeholder if image path might be missing.
                 const imgPath = item.image;
 
-                const linkAttrs = isComingSoon ? 'href="javascript:void(0)" class="cursor-default group relative block h-96 rounded-2xl overflow-hidden shadow-2xl reveal grayscale"' : `href="${item.link}" target="_blank" class="group relative block h-96 rounded-2xl overflow-hidden shadow-2xl hover:shadow-sky-500/50 transition-all duration-500 transform hover:-translate-y-2 reveal"`;
+                const linkAttrs = isComingSoon ? 'href="javascript:void(0)" class="cursor-default group relative block h-80 md:h-96 rounded-2xl overflow-hidden shadow-2xl reveal grayscale"' : `href="${item.link}" target="_blank" class="group relative block h-80 md:h-96 rounded-2xl overflow-hidden shadow-2xl hover:shadow-sky-500/50 transition-all duration-500 transform hover:-translate-y-2 reveal"`;
 
                 const buttonContent = isComingSoon
                     ? `<span class="text-yellow-500 font-bold flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Coming Soon</span>`
