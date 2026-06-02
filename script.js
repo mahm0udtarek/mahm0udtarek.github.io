@@ -68,9 +68,8 @@ const profileData = {
         {
             title: "MCSA",
             image: "images/mcsa_book.png",
-            link: "#",
-            edition: "v1",
-            comingSoon: true
+            link: "https://t.me/NettTip/13",
+            edition: "v1"
         },
         {
             title: "NSE4 – CPT Nuggets",
@@ -101,15 +100,15 @@ const profileData = {
         },
         {
             type: 'Certification',
-            year: '2025 – In-Progress',
-            title: 'EJPTv2',
-            institution: 'Netriders',
-            details: 'Penetration testing skills.'
+            year: '2026',
+            title: 'Cisco CyberOps',
+            institution: 'CISCO Networking Academy',
+            details: 'Security Operation skills.'
         },
         {
             type: 'Certification',
             year: '2025 – In-Progress',
-            title: 'FortiGate FCF',
+            title: 'FortiGate NSE4',
             institution: 'CPT-Nuggets',
             details: 'Firewall configuration and administration.'
         },
@@ -130,7 +129,7 @@ const profileData = {
         {
             type: 'Certification',
             year: '2021',
-            title: 'CCNAv1.1',
+            title: 'CCNA 200-301 v1.1',
             institution: 'Tshoot',
             details: 'Foundational networking.'
         },
