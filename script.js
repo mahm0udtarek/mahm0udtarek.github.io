@@ -12,45 +12,36 @@ const profileData = {
 
     skills: [
         {
-            title: "Networking & Security",
+            title: "Networking & Enterprise Security",
             icon: '<svg class="w-8 h-8 text-sky-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9h-3M3 12a9 9 0 019-9m9 9h-3M3 12h3m0 0h12m-6 0h-2M4 6h16M4 18h16"></path></svg>',
             list: [
-                "Configuration & Troubleshooting",
-                "Firewalls & VPNs (FortiGate)",
-                "Protocols: TCP/IP, VLANs, OSPF",
-                "Network Security Solutions",
+                "Network Configuration & Advanced Troubleshooting",
+                "Next-Generation Firewalls & VPN Architecture (FortiGate)",
+                "Routing & Switching Protocols (TCP/IP, VLANs, OSPF, EIGRP)",
+                "Enterprise Network Security Design & Implementation"
             ]
         },
         {
-            title: "Security Frameworks",
+            title: "Security Frameworks & Hardening",
             icon: '<svg class="w-8 h-8 text-sky-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m-7.228 4.228A.5.5 0 0111 20H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-6.879l-2.929 2.93a1 1 0 01-.707.293z"></path></svg>',
             list: [
-                "CIS Control v8 Hardening",
-                "Windows Server Hardening",
-                "CCNP Security Concepts",
-                "CCNA Principles"
+                "CIS Controls v8 Risk Assessment & Implementation",
+                "Windows Server Hardening & Security Baseline Compliance",
+                "Cisco Enterprise & Core Security Concepts",
+                "Threat Modeling & Perimeter Defense Infrastructure"
             ]
         },
         {
-            title: "Operating Systems",
+            title: "Systems & Network Infrastructure Tools",
             icon: '<svg class="w-8 h-8 text-sky-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.515-1.42 2.373-1.42 2.888 0l1.737 4.795h5.05a1.5 1.5 0 01.91 2.617l-4.14 3.013 1.577 4.35a1.5 1.5 0 01-2.298 1.673L12 18.04l-3.522 2.05a1.5 1.5 0 01-2.298-1.673l1.577-4.35-4.14-3.013a1.5 1.5 0 01.91-2.617h5.05l1.737-4.795z"></path></svg>',
             list: [
-                "Windows Server Admin",
-                "Wireshark Analysis",
-                "GNS3 Simulation",
-                "MSCA Principles",
-            ]
-        },
-        {
-            title: "Future Goals",
-            icon: '<svg class="w-8 h-8 text-sky-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>',
-            list: [
-                "CCNP ENCORE",
-                "Virtualization (vSphere)",
-                "Red Hat Linux",
+                "Windows Server Administration & Active Directory (MCSA Architecture)",
+                "Deep Packet Inspection & Traffic Analysis (Wireshark)",
+                "Network Emulation & Topology Simulation (GNS3 / EVENG)",
+                "Linux System Administration Basics"
             ]
         }
-    ],
+],
 
     books: [
         {
