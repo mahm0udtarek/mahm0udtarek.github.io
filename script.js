@@ -2,7 +2,7 @@
 const profileData = {
     showDemoLabel: true,
     name: "Mahmoud Tarek",
-    title: "Junior Network and Security Engineer",
+    title: "Network and Security Engineer",
     email: "mahmoud.tariek7@gmail.com",
     linkedin: "https://www.linkedin.com/in/mahm0udtarek/",
     github: "https://github.com/houda71",
