@@ -1,4 +1,4 @@
-﻿// --- 1. CONFIGURATION DATA ---
+// --- 1. CONFIGURATION DATA ---
 const profileData = {
     showDemoLabel: true,
     name: "Mahmoud Tarek",
@@ -8,7 +8,10 @@ const profileData = {
     github: "https://github.com/houda71",
     location: "Egypt",
     tagline: "Driven Engineer with hands-on FortiGate, CCNP Security, and CCNA skills, eager to apply expertise in security operations and network infrastructure.",
-    summary: "A recent graduated Electronics and Communications Engineer with knowledge in FortiGate Firewall (NSE4), CCNP Security, and CCNA, passionate about advancing my career in network security. With hands-on skills in configuring routers, switches, and firewalls, and proficiency in tools like Wireshark and GNS3. I am eager to contribute to innovative security operations while continuously growing my technical expertise.",
+    summary: `<p>Electronics and Communications Engineer currently working as an <strong class="text-white font-semibold">IT Specialist at Intelcia</strong>, with practical experience in IT support, hardware and software troubleshooting, and network connectivity support.</p>
+<p>I have a strong foundation in networking and network security, including TCP/IP, Routing & Switching, VLANs, VPNs, and firewall technologies. My technical background includes Cisco technologies, FortiGate Firewall, Hyper-V, VMware, and practical lab experience using GNS3, PNETLab, and Wireshark.</p>
+<p>I have studied <strong class="text-white font-semibold">CCNA, CCNP Security, and FortiGate NSE 4</strong> technologies, and have foundational knowledge of security and monitoring solutions such as Wazuh, Zabbix, and Kaspersky Security Center. I also have knowledge of Windows Server and Active Directory concepts.</p>
+<p>I am passionate about continuously developing my technical expertise and building my career in <strong class="text-white font-semibold">Network Engineering and Cybersecurity</strong>, with a particular interest in enterprise networking, firewall technologies, and security solutions. I enjoy learning new technologies, building practical labs, and solving technical challenges.</p>`,
 
     skills: [
         {
@@ -74,11 +77,39 @@ const profileData = {
     labs: [
         {
             title: "Secure Campus Network",
-            image: "images/lab_vpn.png",
-            link: "#",
-            type: "GNS3 Topology"
+            image: "images/lab_scn_topology.jpg",
+            type: "Pnet Lab",
+            description: "A full-scale enterprise campus network built from scratch in PnetLab. The goal was to design a realistic, redundant infrastructure and practice how every layer works together — not just in isolation.",
+            tags: ["OSPF", "HSRP", "VRRP", "LACP", "PAgP", "SD-WAN", "IPsec VPN", "FortiGate HA", "VLANs", "Inter-VLAN Routing", "DHCP", "LDAP"],
+            highlights: [
+                { icon: "🏗️", text: "Multi-layer design: Core / Distribution / Access" },
+                { icon: "🔀", text: "VLANs 10–80 with Inter-VLAN Routing & VTP v3" },
+                { icon: "📡", text: "OSPF across all layers — 84 routes learned on FortiGate" },
+                { icon: "🔄", text: "HSRP & VRRP for gateway redundancy at Distribution layer" },
+                { icon: "⚡", text: "LACP & PAgP EtherChannel (L2 & L3) for link aggregation" },
+                { icon: "🛡️", text: "FortiGate NGFW in Active/Passive HA (FG-1 Primary, FG-2 Secondary)" },
+                { icon: "🌐", text: "SD-WAN with dual ISP (ISP1 & ISP2) load balancing" },
+                { icon: "🔐", text: "IPsec Site-to-Site VPN to Branch office" },
+                { icon: "🧑‍💼", text: "LDAP integration with Active Directory (cybernet.com)" },
+                { icon: "🚫", text: "FortiGuard URL Filtering — blocked social media (Facebook)" },
+                { icon: "📋", text: "DHCP scopes for all 8 VLANs served from PDC (Windows Server)" },
+            ],
+            gallery: [
+                { src: "images/lab_scn_topology.jpg",   caption: "Full PnetLab Network Topology" },
+                { src: "images/lab_scn_fg_interfaces.jpg", caption: "FortiGate Interfaces — SD-WAN Zones & Physical Ports" },
+                { src: "images/lab_scn_fg_ha.jpg",      caption: "FortiGate HA — Primary (FG-1) & Secondary (FG-2) Synchronized" },
+                { src: "images/lab_scn_fg_ldap.jpg",    caption: "LDAP Integration with Active Directory (cybernet.com)" },
+                { src: "images/lab_scn_fg_routing.jpg", caption: "OSPF Routing Monitor — 84 Routes on FortiGate" },
+                { src: "images/lab_scn_fg_sdwan.jpg",   caption: "SD-WAN Monitor — Dual ISP Active & Up" },
+                { src: "images/lab_scn_fg_ipsec.jpg",   caption: "IPsec VPN Monitor — Branch1 Tunnel Active" },
+                { src: "images/lab_scn_fg_policy.jpg",  caption: "Firewall Policy — Internet, VPN In/Out, Implicit Deny" },
+                { src: "images/lab_scn_fb_block.jpg",   caption: "FortiGuard URL Filtering — Facebook Blocked" },
+                { src: "images/lab_scn_vpc_ping.jpg",   caption: "End-to-End Connectivity — VPC5 Pinging 192.168.90.10 via VPN" },
+                { src: "images/lab_scn_dhcp.jpg",       caption: "Windows Server DHCP — Scopes for VLANs 10–80" },
+                { src: "images/lab_scn_lacp.jpg",       caption: "EtherChannel Summary — LACP Po1 (SU) with Et0/0 & Et1/1" },
+                { src: "images/lab_scn_vtp.jpg",        caption: "VTP v3 Status — Server Mode, 10 VLANs, Domain: cisco1" },
+            ]
         },
-
     ],
 
     educationAndCourses: [
@@ -380,6 +411,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+
+        
         // Close menu when clicking on a link
         const mobileMenuLinks = mobileMenu.querySelectorAll('a');
         mobileMenuLinks.forEach(link => {
@@ -448,7 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     setHTML('hero-tagline', `<span class="font-semibold text-sky-400">Mission:</span> ${profileData.tagline}`);
-    setText('summary-content', profileData.summary);
+    setHTML('summary-content', profileData.summary);
     setText('contact-location', profileData.location);
 
     // --- Skills Grid ---
@@ -525,7 +558,152 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     renderCards(profileData.books, 'books-grid', true);
-    renderCards(profileData.labs, 'labs-grid', false);
+
+    // --- Rich Lab Cards with Modal Gallery ---
+    const renderLabCards = (data, containerId) => {
+        const container = document.getElementById(containerId);
+        if (!container || !data) return;
+
+        container.innerHTML = data.map((lab, index) => `
+            <div class="group relative block h-80 md:h-96 rounded-2xl overflow-hidden shadow-2xl hover:shadow-sky-500/50 transition-all duration-500 transform hover:-translate-y-2 reveal cursor-pointer" onclick="openLabModal(${index})">
+                <div class="absolute inset-0 bg-gray-900 flex items-center justify-center overflow-hidden">
+                    <div class="absolute inset-0 bg-gray-800 animate-pulse -z-10"></div>
+                    <img src="${lab.image}" alt="${lab.title}" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" onerror="this.src='https://via.placeholder.com/800x500/0f172a/0ea5e9?text=Secure+Campus+Network'">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent"></div>
+                <div class="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">COMPLETED</div>
+                <div class="absolute bottom-0 left-0 p-6 w-full">
+                    <span class="inline-block px-3 py-1 bg-sky-600 text-white text-xs font-bold rounded-full mb-2 shadow-lg">${lab.type}</span>
+                    <h4 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">${lab.title}</h4>
+                    <div class="flex flex-wrap gap-1 mb-3">
+                        ${(lab.tags || []).slice(0, 5).map(t => `<span class="text-xs bg-gray-800/80 text-sky-300 px-2 py-0.5 rounded-full border border-sky-800/50">${t}</span>`).join('')}
+                        ${lab.tags && lab.tags.length > 5 ? `<span class="text-xs bg-gray-800/80 text-gray-400 px-2 py-0.5 rounded-full border border-gray-700">+${lab.tags.length - 5} more</span>` : ''}
+                    </div>
+                    <div class="flex items-center text-gray-300 text-sm font-medium group-hover:text-white transition-colors">
+                        <span>View Lab Details</span>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        // --- Lab Modal Logic ---
+        window._labData = data;
+
+        window.openLabModal = function(index) {
+            const lab = window._labData[index];
+            if (!lab) return;
+            let currentImg = 0;
+
+            const galleryHTML = lab.gallery.map((g, i) => `
+                <div class="lab-gallery-thumb cursor-pointer flex-shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 ${i === 0 ? 'border-sky-400' : 'border-transparent'} transition-all hover:border-sky-400" onclick="switchLabImg(${i})" id="lab-thumb-${i}">
+                    <img src="${g.src}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/80x56/1e293b/0ea5e9?text=img'">
+                </div>
+            `).join('');
+
+            const highlightsHTML = (lab.highlights || []).map(h => `
+                <div class="flex items-start gap-2 text-sm text-gray-300">
+                    <span class="text-lg flex-shrink-0 leading-tight">${h.icon}</span>
+                    <span>${h.text}</span>
+                </div>
+            `).join('');
+
+            const tagsHTML = (lab.tags || []).map(t => `
+                <span class="text-xs bg-sky-900/50 text-sky-300 px-3 py-1 rounded-full border border-sky-700/50">${t}</span>
+            `).join('');
+
+            const modal = document.createElement('div');
+            modal.id = 'lab-modal';
+            modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4';
+            modal.innerHTML = `
+                <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeLabModal()"></div>
+                <div class="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-2xl bg-[#0f172a] border border-gray-700 shadow-2xl z-10">
+                    <!-- Header -->
+                    <div class="sticky top-0 z-20 flex items-center justify-between p-5 bg-[#0f172a]/95 backdrop-blur border-b border-gray-800">
+                        <div>
+                            <span class="text-xs font-bold text-sky-400 uppercase tracking-widest">${lab.type}</span>
+                            <h2 class="text-2xl font-bold text-white">${lab.title}</h2>
+                        </div>
+                        <button onclick="closeLabModal()" class="text-gray-400 hover:text-white w-9 h-9 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors text-xl">✕</button>
+                    </div>
+
+                    <div class="p-5 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Left: Image Gallery -->
+                        <div class="flex flex-col gap-3">
+                            <div class="relative rounded-xl overflow-hidden bg-gray-900 h-64 md:h-80">
+                                <img id="lab-main-img" src="${lab.gallery[0].src}" class="w-full h-full object-contain" onerror="this.src='https://via.placeholder.com/800x500/0f172a/0ea5e9?text=Image'">
+                                <!-- Nav arrows -->
+                                <button onclick="prevLabImg()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-9 h-9 rounded-full flex items-center justify-center text-lg transition-colors">‹</button>
+                                <button onclick="nextLabImg()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-9 h-9 rounded-full flex items-center justify-center text-lg transition-colors">›</button>
+                                <div id="lab-img-counter" class="absolute bottom-2 right-2 bg-black/60 text-white text-xs px-2 py-0.5 rounded-full">1 / ${lab.gallery.length}</div>
+                            </div>
+                            <p id="lab-img-caption" class="text-xs text-gray-400 text-center italic">${lab.gallery[0].caption}</p>
+                            <!-- Thumbnails -->
+                            <div class="flex gap-2 overflow-x-auto pb-1" style="scrollbar-width:thin">
+                                ${galleryHTML}
+                            </div>
+                        </div>
+
+                        <!-- Right: Details -->
+                        <div class="flex flex-col gap-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">${lab.description}</p>
+
+                            <div>
+                                <h3 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Technologies Used</h3>
+                                <div class="flex flex-wrap gap-2">${tagsHTML}</div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">What I Implemented</h3>
+                                <div class="grid grid-cols-1 gap-2">${highlightsHTML}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            document.body.style.overflow = 'hidden';
+
+            window._labGallery = lab.gallery;
+            window._labCurrentImg = 0;
+
+            window.switchLabImg = function(i) {
+                const imgs = window._labGallery;
+                window._labCurrentImg = i;
+                document.getElementById('lab-main-img').src = imgs[i].src;
+                document.getElementById('lab-img-caption').textContent = imgs[i].caption;
+                document.getElementById('lab-img-counter').textContent = `${i + 1} / ${imgs.length}`;
+                document.querySelectorAll('.lab-gallery-thumb').forEach((el, idx) => {
+                    el.classList.toggle('border-sky-400', idx === i);
+                    el.classList.toggle('border-transparent', idx !== i);
+                });
+            };
+            window.prevLabImg = function() {
+                const len = window._labGallery.length;
+                window.switchLabImg((window._labCurrentImg - 1 + len) % len);
+            };
+            window.nextLabImg = function() {
+                const len = window._labGallery.length;
+                window.switchLabImg((window._labCurrentImg + 1) % len);
+            };
+        };
+
+        window.closeLabModal = function() {
+            const modal = document.getElementById('lab-modal');
+            if (modal) modal.remove();
+            document.body.style.overflow = '';
+        };
+
+        // Keyboard navigation for modal
+        document.addEventListener('keydown', function(e) {
+            if (!document.getElementById('lab-modal')) return;
+            if (e.key === 'Escape') window.closeLabModal();
+            if (e.key === 'ArrowLeft') window.prevLabImg && window.prevLabImg();
+            if (e.key === 'ArrowRight') window.nextLabImg && window.nextLabImg();
+        });
+    };
+
+    renderLabCards(profileData.labs, 'labs-grid');
 
     // --- Simple Horizontal SOC Roadmap ---
     const renderSOCRoadmap = (data, containerId) => {
