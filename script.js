@@ -112,6 +112,31 @@ const profileData = {
         },
     ],
 
+    experience: [
+        {
+            role: "IT Specialist",
+            company: "Intelcia",
+            period: "Current Position",
+            summary: "Working as an IT Specialist, providing technical support and assisting with day-to-day IT operations in a professional corporate environment.",
+            responsibilities: [
+                "Provide technical support and troubleshoot hardware, software, and end-user issues.",
+                "Diagnose and resolve Windows operating system and application-related problems.",
+                "Troubleshoot network connectivity and access-related issues.",
+                "Assist users with IT-related incidents and technical requests.",
+                "Support the reliability and smooth operation of end-user IT environments.",
+                "Investigate technical issues and coordinate with relevant teams when escalation is required."
+            ],
+            skills: [
+                "Windows 10/11",
+                "Hardware & Software Troubleshooting",
+                "IT Support & Incident Management",
+                "Network Troubleshooting",
+                "Microsoft Office Applications",
+                "Active Directory Fundamentals"
+            ]
+        }
+    ],
+
     educationAndCourses: [
         {
             type: 'Education',
@@ -483,6 +508,81 @@ document.addEventListener('DOMContentLoaded', () => {
     setHTML('hero-tagline', `<span class="font-semibold text-sky-400">Mission:</span> ${profileData.tagline}`);
     setHTML('summary-content', profileData.summary);
     setText('contact-location', profileData.location);
+
+    // --- Experience Timeline ---
+    const expContainer = document.getElementById('experience-container');
+    if (expContainer && profileData.experience) {
+        expContainer.innerHTML = profileData.experience.map((exp, index, array) => {
+            const isLast = index === array.length - 1;
+            return `
+                <div class="flex relative pl-8 ${!isLast ? 'border-l-2 border-sky-800' : ''} reveal">
+                    <!-- Glowing timeline node -->
+                    <div class="absolute w-4 h-4 rounded-full bg-sky-500 -left-[9px] top-0 border-4 border-gray-900 shadow-[0_0_12px_rgba(14,165,233,0.6)]"></div>
+                    
+                    <div class="flex-grow pb-12">
+                        <!-- Period & Status Badge -->
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="inline-block px-2.5 py-1 text-xs font-semibold text-sky-300 bg-sky-900/40 border border-sky-800/50 rounded">${exp.period}</span>
+                            <span class="px-2 py-0.5 text-xs font-bold text-green-400 bg-green-950/60 border border-green-800/60 rounded-full inline-flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                                Active
+                            </span>
+                        </div>
+
+                        <!-- Role & Company -->
+                        <h4 class="text-xl md:text-2xl font-bold text-white mt-1">${exp.role}</h4>
+                        <p class="text-sky-400 font-semibold text-base flex items-center gap-1.5 mt-0.5">
+                            <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                            ${exp.company}
+                        </p>
+
+                        <!-- Overview Summary -->
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed mt-3">
+                            ${exp.summary}
+                        </p>
+
+                        <!-- Key Responsibilities -->
+                        <div class="mt-4">
+                            <h5 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                Key Responsibilities:
+                            </h5>
+                            <ul class="space-y-2 text-sm text-gray-300 pl-1">
+                                ${exp.responsibilities.map(resp => `
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-sky-400 text-xs mt-1">▸</span>
+                                        <span class="leading-relaxed">${resp}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+
+                        <!-- Technologies & Skills -->
+                        <div class="mt-5 pt-3 border-t border-gray-800/70">
+                            <h5 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                </svg>
+                                Technologies & Skills:
+                            </h5>
+                            <div class="flex flex-wrap gap-2">
+                                ${exp.skills.map(s => `
+                                    <span class="px-2.5 py-1 text-xs font-medium bg-gray-900 text-sky-300 border border-sky-800/40 rounded-lg">
+                                        ${s}
+                                    </span>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
 
     // --- Skills Grid ---
     const skillsGrid = document.getElementById('skills-grid');
